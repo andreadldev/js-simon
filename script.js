@@ -19,10 +19,10 @@ btn.addEventListener("click", function() {
         }
     }
     numbers.innerHTML = `Numeri casuali: ${randomNumbers.join(' - ')}`;
-    timerDisplay.innerHTML = "Conto alla rovescia: 3";
+    timerDisplay.innerHTML = "Conto alla rovescia: 10";
     btn.disabled = true;
 
-    let i = 2;
+    let i = 9;
     const timer = setInterval(function() {
         if (i === -1) {
             clearInterval(timer);
@@ -45,6 +45,10 @@ btn.addEventListener("click", function() {
                     }
                 else if (guessedNumbers.length === 1) {
                     numbers.innerHTML = `Hai indovinato ${guessedNumbers.length} numero <br> Numero indovinato: ${guessedNumbers.join(' - ')}`;
+                    btn.disabled = false;
+                }
+                else if (guessedNumbers.length === 5) {
+                    numbers.innerHTML = `Complimenti! Hai indovinato tutti i numeri! <br> ${guessedNumbers.join(' - ')}`;
                     btn.disabled = false;
                 }
                 else {
