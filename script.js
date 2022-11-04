@@ -22,8 +22,7 @@ timerDisplay.innerHTML = "Conto alla rovescia: 3";
 
 let i = 2;
 const timer = setInterval(function() {
-    if 
-        (i === -1) {
+    if (i === -1) {
         clearInterval(timer);
         numbers.innerHTML = "";
         timerDisplay.innerHTML = "";
@@ -31,18 +30,14 @@ const timer = setInterval(function() {
 
         setTimeout(function() {
             for (let x = 0; x < 5; x++) {
-                const insertNumber = prompt("Inserisci uno alla volta i numeri visti in precedenza");
-
-                for (let y = 0; y < randomNumbers.length; y++) {
-                    if 
-                        (insertNumber == randomNumbers[y] && guessedNumbers.indexOf(randomNumbers[y]) === -1) {
-                        console.log(`hai indovinato il numero ${randomNumbers[y]}`);
-                        guessedNumbers.push(`${randomNumbers[y]}`);
-                    };
+                const insertNumber = Number(prompt("Inserisci uno alla volta i numeri visti in precedenza"));
+                if(randomNumbers.indexOf(insertNumber) !== -1 && guessedNumbers.indexOf(insertNumber) === -1) {
+                    guessedNumbers.push(insertNumber);
+                    console.log(`hai indovinato il numero ${insertNumber}`);
                 }
             }
-            if 
-                (guessedNumbers.length === 0) {
+
+            if (guessedNumbers.length === 0) {
                 console.log("Non hai indovinato nessun numero.");
                 }
             else 
@@ -50,8 +45,8 @@ const timer = setInterval(function() {
         }, 0)
      
     }
-    else 
-        {timerDisplay.innerHTML = `Conto alla rovescia: ${i}`;
+    else {
+        timerDisplay.innerHTML = `Conto alla rovescia: ${i}`;
         i--;
     }
 }, 1000)
