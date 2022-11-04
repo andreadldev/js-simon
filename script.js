@@ -17,8 +17,6 @@ while (randomNumbers.length < 5) {
     }
 }
 
-console.log(randomNumbers.indexOf);
-
 numbers.innerHTML = `Numeri casuali: ${randomNumbers.join(' - ')}`;
 timerDisplay.innerHTML = "Conto alla rovescia: 3";
 
@@ -37,7 +35,7 @@ const timer = setInterval(function() {
 
                 for (let y = 0; y < randomNumbers.length; y++) {
                     if 
-                        (insertNumber == randomNumbers[y]) {
+                        (insertNumber == randomNumbers[y] && guessedNumbers.indexOf(randomNumbers[y]) === -1) {
                         console.log(`hai indovinato il numero ${randomNumbers[y]}`);
                         guessedNumbers.push(`${randomNumbers[y]}`);
                     };
