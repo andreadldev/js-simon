@@ -9,10 +9,15 @@ const guessedNumbers = [];
 const timerDisplay = document.getElementById("timer");
 const numbers = document.getElementById("numbers");
 
+
 while (randomNumbers.length < 5) {
     let numbers = generateNumber(1, 100);
-    randomNumbers.push(numbers);
+    if (randomNumbers.indexOf(numbers) === -1) {
+        randomNumbers.push(numbers);
+    }
 }
+
+console.log(randomNumbers.indexOf);
 
 numbers.innerHTML = `Numeri casuali: ${randomNumbers.join(' - ')}`;
 timerDisplay.innerHTML = "Conto alla rovescia: 3";
